@@ -1,0 +1,19 @@
+A = [];
+b = [];
+x0 = [170 0 6]; %beta, kappa, turbidity
+
+% log intensity domain - [4 0 6]
+% intensity domain - [170 0 3]
+
+Aeq = [];
+beq=[];
+
+% set boundary
+lb = [0 0 1];
+ub = [];
+
+% constraint
+% sunIntensity >= 0 && skyIntensity >=0
+
+fun = @objectiveFun;
+[x, fval] = fmincon(fun,x0,A,b,Aeq,beq,lb,ub)
