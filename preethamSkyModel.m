@@ -7,6 +7,7 @@ function [x, y, Y] = preethamSkyModel(sunTheta, theta,gamma,turbidity)
 
 % zenith value
 zenithY = (4.0453*turbidity - 4.97100)*tan((4/9-turbidity/120) * (pi - 2*sunTheta)) -0.2155*turbidity + 2.4192;
+zenithY = zenithY * 1000;
 zenithx = [turbidity^2 turbidity 1] * [0.00166 -0.00375 0.00209 0; -0.02903 0.06377 -0.03202 0.00394; 0.11693 -0.21196 0.06052 0.25886]*[sunTheta^3 sunTheta^2 sunTheta 1]';
 zenithy = [turbidity^2 turbidity 1] * [0.00275 -0.00610 0.00317 0; -0.04214 0.08970 -0.04153 0.00516;0.15346 -0.26756 0.06670 0.26688]*[sunTheta^3 sunTheta^2 sunTheta 1]';
 

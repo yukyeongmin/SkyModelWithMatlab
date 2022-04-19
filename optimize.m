@@ -1,13 +1,14 @@
 
-x0 = [17 1 3]; %beta, kappa, turbidity
-% log intensity domain - [4 0 6] -> problem..
-% intensity domain - []
+x0 = [6 0 2]; %beta, kappa, turbidity
 
 % set boundary
-lb = [0 0 1];
-ub = [];
+lb = [0 0 2];
+ub = [inf inf 30];
 
 % constraint
-% each RGB value must be positive
+% each RGB value must be positive??
+% options = optimoptions('fmincon');
+% options.StepTolerance = 1e-10;
 
-[x, fval] = fmincon('objectiveFun',x0,[],[],[],[],lb,ub)
+[x, fval, ~, output] = fmincon('objectiveFun',x0,[],[],[],[],lb,ub)
+

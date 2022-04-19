@@ -6,8 +6,6 @@
 % meanSunColor : mean color one scalar for each channel
 
 
-function luminance = sunmodel(gamma, beta, kappa, meanSunColor)
+function luminance = sunmodel(gamma, beta, kappa)
 
-luminance(1) = meanSunColor(1)*exp(-beta .* exp(-kappa./cos(gamma)));
-luminance(2) = meanSunColor(2)*exp(-beta .* exp(-kappa./cos(gamma)));
-luminance(3) = meanSunColor(3)*exp(-beta .* exp(-kappa./cos(gamma)));
+luminance = exp(-beta .* exp(-kappa./cos(gamma)));
